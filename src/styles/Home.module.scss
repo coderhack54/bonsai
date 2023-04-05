@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
 $dirtygreen: #65816d;
 $lightgreen: #22ad01;
+$tablet: 960px;
 
 @mixin buttonStyle {
-    padding: 10px 20px 12px;
+    padding: 12px 20px 12px;
     cursor: pointer;
     border: 0;
     outline: none;
@@ -12,17 +14,24 @@ $lightgreen: #22ad01;
 @mixin navigationFontStyle {
     text-decoration: none;
     color: $dirtygreen;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1em;
     letter-spacing: 0.25px;
     line-break: 1.2;
 }
 
+
 .navbar {
     padding: 0 5em;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
-    margin-bottom: 1em;
+    margin-bottom: 0;
+    font-family: 'Rubik', sans-serif;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
 
     &::after {
         content: '';
@@ -48,15 +57,44 @@ $lightgreen: #22ad01;
         width: 100%;
         position: relative;
 
+        @media screen and (max-width:$tablet) {
+
+            flex-direction: column;
+            position: absolute;
+            top: -500px;
+    
+            background-color: white;
+            overflow: hidden;
+            left: 0;
+            padding-bottom:1em;
+            transition: top 0.5s;
+            &.active{
+                top:69px;
+            
+                transition:top 0.5s;
+            }
+        }
     }
 
     .navbar__buttons {
+        display: flex;
 
         button:first-child {
             @include buttonStyle;
             color: #003c2f;
             background-color: transparent;
+            font-family: inherit;
+            font-size: 14px;
 
+            &:hover {
+                background-color: rgb(241, 238, 238);
+                transition: 0.2s ease-in;
+            }
+            @media screen and (max-width:$tablet) {
+                border:2px solid $dirtygreen;
+                margin-bottom:0.8em;
+                padding:1em;
+            }
         }
 
         button:last-child {
@@ -64,7 +102,8 @@ $lightgreen: #22ad01;
             line-height: 100%;
             background-color: $lightgreen;
             color: #fff;
-
+            font-family: inherit;
+            font-size: 14px;
             font-weight: 500;
 
 
@@ -73,6 +112,16 @@ $lightgreen: #22ad01;
                 background-color: #2bb90a;
                 transition: 0.1s;
             }
+            @media screen and (max-width:$tablet) {
+         
+                padding:1em;
+            }
+           
+        }
+
+        @media screen and (max-width:$tablet) {
+            flex-direction: column;
+            width: 80%;
         }
     }
 
@@ -93,24 +142,42 @@ $lightgreen: #22ad01;
         }
 
     }
-
+    @media screen and (max-width:$tablet) {
+        flex-direction: column;
+        width: 100%;
+    
+    }
 }
+
 
 .navbar__list__item__content {
     position: absolute;
     width: 100%;
-    bottom: -40vh;
-    left: 0;
-    height: 40vh;
+    bottom: -250px;
+    left: -10%;
+    min-height: 250px;
     background-color: white;
     box-shadow: 0px 15px 10px -15px #111;
 
     .navbar__list__item__content__wrapper {
         display: flex;
         justify-content: space-between;
+        padding: 1em;
 
         ul {
             list-style: none;
+
+            h4 {
+                color: $dirtygreen;
+                margin-bottom: 0.5em;
+            }
+
+            a {
+                &:hover {
+                    color: $lightgreen;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
@@ -130,9 +197,19 @@ $lightgreen: #22ad01;
     }
 }
 
+.changeColor {
+    color: $lightgreen !important;
+}
 
+.dropdownimg {
+    min-height: 120px;
+}
 
-
-.hidden {
+.mobileicon {
     display: none;
+    cursor: pointer;
+
+    @media screen and (max-width:$tablet) {
+        display: block;
+    }
 }

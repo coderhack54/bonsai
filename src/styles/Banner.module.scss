@@ -1,0 +1,107 @@
+@import "Home.module.scss";
+$darkgreen:#003c2f;
+.banner{    
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
+    justify-content: center;
+    align-content: center;
+    .banner__item{
+    
+        .banner__heading{
+            max-width: 640px;
+            h1{
+                color: $darkgreen;
+                font-size: 60px;
+                margin-top: 20px;
+                font-weight: 700;
+    
+            }
+        }
+    }
+}
+
+
+
+// Styles for switch 
+
+.switch{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.switch__label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 64px;
+    width: 322px;
+    background-color: #f0f5f0;;
+    border-radius: 78px;
+    .switch__monthly{
+        left: 30px;
+        top:22px;
+        position: absolute;
+        color: white;
+        z-index: 1;
+        font-weight: 500;
+        transition: 0.2s color;
+    }
+    .switch__yearly{
+        margin-left: 20px;
+        position: absolute;
+        left: 120px;
+        top: 22px;
+        z-index: 1;
+        color: $darkgreen;
+        font-weight: 500;
+        transition: 0.2s color;
+    }
+    span{
+        &:last-child{
+            width:90px;
+            height:18px;
+            padding: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: $lightgreen;
+            background-color: white;
+            position: absolute;
+            right:30px;
+            border-radius: 18px;
+            font-weight: 700;
+        }
+    }
+    .switch__pill{
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        height: 52px;
+        width: 115px;
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        border-radius: 78px;
+        transition: 0.4s;
+        background-color: $darkgreen;
+    }
+}
+.switch:checked + .switch__label {
+    .switch__pill{
+        transform: translate3d(103px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        // left: calc(100% - 80px);
+        width: 207px;
+    }
+ 
+    .switch__monthly{
+        color:$darkgreen;
+        transition: 0.2s color;
+    }
+    .switch__yearly{
+        color: white;
+        transition: 0.2s color;
+    }
+}
