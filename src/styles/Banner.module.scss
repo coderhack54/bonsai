@@ -1,23 +1,54 @@
 @import "Home.module.scss";
 $darkgreen:#003c2f;
+@mixin cardButton{
+    @include buttonStyle;
+    padding: 12px 56px 14px;
+    background-color: $lightgreen;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    line-height: 140%;
+    border-style: none;
+    font-family: 'Rubik', sans-serif;
+    &:hover{
+        background-color: #2bb90a;
+    }
+}
 .banner{    
     display: grid;
-    grid-template-columns: 2fr 8fr 2fr;
+    grid-template-columns: 1fr 6fr 1fr;
     justify-content: center;
     align-content: center;
+    padding-bottom: 120px;
+
     .banner__item{
-    
+    min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+   
         .banner__heading{
             max-width: 640px;
+            margin-top: 80px;
             h1{
                 color: $darkgreen;
                 font-size: 60px;
-                margin-top: 20px;
+              
                 font-weight: 700;
+                text-align: center;
     
             }
         }
+        .banner__cards{
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+            grid-column-gap: 32px;
+            
+        }
     }
+    
 }
 
 
@@ -104,4 +135,116 @@ $darkgreen:#003c2f;
         color: white;
         transition: 0.2s color;
     }
+}
+
+// plan card wrapper css
+.tagwrapper{
+    text-align: center;
+    background-color: rgb(238, 129, 70);
+    padding: 0 8px 8px 8px;
+    border-radius: 24px;
+    height: max-content;
+    h4{
+        padding: 6px 0;
+        color: white;
+        font-weight: 500;
+    }
+}
+
+
+// plancard css
+
+.plancard{
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 24px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+    padding: 56px 35px 40px;
+    .plancard__wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            font-size: 34px;
+            font-weight: 700;
+            color: $darkgreen;
+            margin: 10px 0;
+        }
+        .plancard__price{
+            span{
+                font-weight: 700;
+                &:nth-child(1){
+                    color: $darkgreen;
+                    font-size: 20px;
+
+
+                }
+                &:nth-child(2){
+                    color: $darkgreen;
+                    font-size: 36px;
+                }
+                &:nth-child(3){
+             color: #65816d;
+                   font-weight: 700;
+                   margin-left: 8px;
+                   opacity: 0.5;
+                }
+            }
+        }
+        button{
+         @include cardButton;
+         margin-top: 1em;
+         margin-bottom: 2em;
+        }
+        .plancard__desc{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: $dirtygreen;
+            font-size: 14px;
+            span{
+                line-height: 125%;
+            }
+        }
+
+
+        .plancard__divideline{
+      
+            border-bottom: 1px solid #d3dcd4;
+            width: 100%;
+            margin:30px 0px;
+        }
+        .plancard__list{
+            display: grid;
+            grid-template-columns: 12fr;
+            gap: 16px;
+            list-style: none;
+            font-weight: 500;
+        
+            li{
+          color: $darkgreen;
+          font-weight: 500;
+          display: flex;
+          justify-content: start;
+          &:first-child{
+            font-weight: 700;
+          }
+                    span{
+                        &:first-child{
+                            color: $lightgreen;
+                            margin-right: 1em;
+                        }
+                    }
+            }
+            margin-bottom: 3em
+        }
+        button{
+            @include cardButton;
+        }
+    }
+
 }

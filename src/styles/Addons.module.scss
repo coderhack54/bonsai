@@ -1,0 +1,59 @@
+@import "Home.module.scss";
+@import "Banner.module.scss";
+
+.addons{
+
+    height: 100vh;
+    padding: 0 180px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    h3{
+        margin-top: 20px;
+        color: $darkgreen;
+        font-size: 42px;
+        line-height: 100%;
+        font-weight: 700;
+       display:flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 1.5em;
+    }
+  
+}
+.addons__cards__row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.addon__card{
+    display: flex;
+    min-height: 356px;
+    padding: 40px;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #d3dcd4;
+    border-radius: 20px;
+
+    div{
+        h6{
+                margin-top: 10px;
+                font-size: 22px;
+                line-height: 120%;
+                font-weight: 700;
+                color: $darkgreen;
+        }
+        p{
+            margin-top: 1em;
+            max-width: 250px;
+            color:$dirtygreen;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+        }
+    }
+}
